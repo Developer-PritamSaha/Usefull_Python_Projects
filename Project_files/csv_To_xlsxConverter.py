@@ -6,6 +6,7 @@ t = len(file_path)
 if file_path[t-4:] != '.csv':
     file_path += '.csv'
 
+#>> This block enables you to choose a different file name for your extracted '.xlsx' file
 # save_name = input('\n#> Enter the name of file to be saved : ')
 # t = len(save_name)
 # if save_name[t-5:] != '.xlsx':

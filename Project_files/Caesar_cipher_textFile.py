@@ -99,12 +99,12 @@ if choice == 'e':
     print(f"\n@>> Text encryption completed in {time_taken}s.")
     print_choice = input("\n >> Do you want to print the encrypted file on the console(y/n)? ").lower()
     temp = open(e_path,'r')
-    print(f"\n @ Filename >> {fileName}(Encrypted).txt \n\n  #> The encrypted file has been saved to the original files's location.\n")
+    print(f"\n @ Filename >> {fileName}(Encrypted).txt \n\n  #> The encrypted file has been saved to the original file's location.\n")
 else:
     print(f"\n@>> Text decryption completed in {time_taken}s.")
     print_choice = input("\n >> Do you want to print the decrypted file on the console(y/n)? ").lower()
     temp = open(d_path,'r')
-    print(f"\n @ Filename >> {fileName}(Decrypted).txt \n\n  #> The decrypted file has been saved to the original files's location.\n")
+    print(f"\n @ Filename >> {fileName}(Decrypted).txt \n\n  #> The decrypted file has been saved to the original file's location.\n")
 
 
 if print_choice == 'y':

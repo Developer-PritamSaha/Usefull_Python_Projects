@@ -4,10 +4,15 @@ import time
 def caesar_cipher_dictionary(shift):
     '''This returns a dictionary which has all alphabet's corresponding shifted or cipher alphabet'''
     l = string.ascii_lowercase
+    n = "0123456789"
     d = {}
     for i in range(len(l)):
         d[l[i]] = l[(i+shift)%26] 
         d[(l[i].upper())] = d[l[i]].upper()
+
+    for i in range(len(n)):
+        d[n[i]] = n[(i+shift)%10] 
+        
     return d
 
 def encrypter_decrypter(s,shift):
@@ -15,14 +20,14 @@ def encrypter_decrypter(s,shift):
     cipher_d = caesar_cipher_dictionary(shift)
     cipher_text = ''
     for i in s:
-        if i.isalpha():
+        if i in cipher_d:
             i = cipher_d[i]
         cipher_text += i
     return cipher_text
 
-
+# Main
 print('\n <<| Hello, here you can encrypt OR decrypt a text file |>>')
-t = input('\n#> Please provide the text file location(like C:\\Users\\Example.txt ) 3> ')
+t = input('\n#> Please provide the text file location(like "C:\\Users\\Example.txt" ) 3> ').strip('"')
 f = 1
 c = 0
 fileName = ''

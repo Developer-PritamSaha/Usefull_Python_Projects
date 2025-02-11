@@ -1,10 +1,13 @@
+# Convert any 'CSV' file to 'XLSX' file format
+
 import csv
 import openpyxl
 
 file_path = input('\n#> Enter the file path or name of the file : ').replace('"','')
+print(file_path)
 t = len(file_path)
-if file_path[t-4:] != '.csv':
-    file_path += '.csv'
+if file_path[t-4:].lower() != '.csv':
+    raise Exception('\n <!> Error: File format is not supported! Please enter a ".csv" file.')
 
 
 t = len(file_path)
@@ -23,16 +26,23 @@ data = csv.reader(csv_file)
 next = 1
 workbook = openpyxl.Workbook()
 sheet = workbook.active
-c_Name = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+
+def get_column_letter(n):
+    '''This function generates the appropriate column letters for columns beyond 'Z'. This allows the script to handle CSV files with more than 26 columns.'''
+    result = ''
+    while n > 0:
+        n, remainder = divmod(n - 1, 26)
+        result = chr(65 + remainder) + result
+    return result
 
 for row in data:
     if next == 1:
         c = len(row)
     for i in range(1,c+1):
         t = str(next)
-        sheet[c_Name[i-1]+t] = row[i-1]
+        sheet[get_column_letter(i) + t] = row[i - 1]
     next += 1
 
 workbook.save(save_name)
 
-print('\n ※ Your file has been converted successfully!\n   ⁘ ".xlsx" file has been saved in the original file directory.\n')
+print("\n ※ Your file has been converted successfully!\n   ⁘ '.xlsx' file has been saved in the provided '.csv' file's directory. \n")

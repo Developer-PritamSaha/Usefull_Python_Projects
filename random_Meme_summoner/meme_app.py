@@ -20,4 +20,4 @@ a = input("\n 🎊 Welcome to Meme Summoner! \n\n >> Wanna see wholesome memes(y
 if (a != "n"):
     safe_mode = "/wholesomememes"
 
-app.run(host="0.0.0.0", port=8080) 
+app.run(host="0.0.0.0", port=8080, debug=True) 

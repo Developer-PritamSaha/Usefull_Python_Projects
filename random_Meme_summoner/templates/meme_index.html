@@ -31,12 +31,30 @@
             font-style: normal;
             color: rgb(178, 121, 253);
         }
+        button{
+            color:aqua;
+            background-color: rgb(48, 48, 71);
+            font-size: 30px;
+            margin-left: 20px;
+            border-radius: 25px;
+            border-color: rgb(138, 82, 212);
+        }
     </style>
 </head>
 <body>
     <h1>A Website to gather some memes!</h1>
-    <p>Here is your meme! This will refresh in 30 seconds!</p>
+    <p>Here is your meme! This will refresh in 30 seconds!<button id="refreshButton">Refresh</button></p>
     <p><img src="{{ meme_pic }}" width="500px" height="600px"></p>
     <p class="info">Current subreddit: {{ subreddit }}</p>
+
+    <script>
+      const refreshBtn = document.getElementById("refreshButton");
+
+      function refreshPage() {
+        location.reload(); // This reloads the current page
+      }
+
+      refreshBtn.addEventListener("click", refreshPage);
+    </script>
 </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8", http-equiv="refresh" content="30;url=http://127.0.0.1:8080/">
+    <link rel="icon" type="image/x-icon" href="/static/images/icons8-meme-100.png">
+    <title>Meme Summoner</title>
+    <style>
+        body{
+            background-color: rgb(17, 1, 30);
+            background-repeat: no-repeat;
+            background-position: top left;
+        }
+        h1{
+            text-align: center;
+            font-family: Helvetica, sans-serif;
+            color: rgb(2, 116, 78);
+        }
+        p{
+            text-align: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 40px;
+            font-style: normal;
+            color: rgb(255, 127, 138);
+
+        }
+        .info{
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 30px;
+            font-style: normal;
+            color: rgb(178, 121, 253);
+        }
+    </style>
+</head>
+<body>
+    <h1>A Website to gather some memes!</h1>
+    <p>Here is your meme! This will refresh in 30 seconds!</p>
+    <p><img src="{{ meme_pic }}" width="500px" height="600px"></p>
+    <p class="info">Current subreddit: {{ subreddit }}</p>
+</body>
+</html>

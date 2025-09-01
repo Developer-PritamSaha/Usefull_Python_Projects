@@ -1,4 +1,5 @@
 import os
+from flask_cors import CORS
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -8,6 +9,8 @@ import logging
 logging.basicConfig(filename=os.path.join(base_dir, "api-bin.log"), level=logging.DEBUG, format=f'%(asctime)s - %(levelname)s - %(name)s : %(message)s')
 
 app = Flask(__name__)
+# Enable CORS for all routes
+CORS(app)
 
 try:
     # Configure SQLite
@@ -163,7 +166,7 @@ try:
             }), 400
 
     if __name__ == "__main__":
-        print("\n#>> A simple CRUD api for testing api calls from a frontend")
+        print("\n#>> A simple CRUD api for testing api calls from a frontend\n\n > Endpoint1 : /api_bin_data -> (POST, GET, DELETE)\n > Endpoint2 : /api_bin_data/{{id}} -> (GET, DELETE, PUT)")
         print("\n  #>> API-Bin running at : http://127.0.0.1:6788\n (ctrl + c - to stop the API)\n")
         app.run(debug=False, port=6788)
 
